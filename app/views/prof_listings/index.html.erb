@@ -14,7 +14,7 @@
 <% @proflistings.each do |listing| %>
   <% if listing.active %>
 <div class="card-listing">
-  <%= cl_image_tag @article.photo %>
+  <%= cl_image_tag User.find(listing.user.id).photo, gravity: :face %>
   <div class="card-listing-infos">
     <div>
       <h2><%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %>
