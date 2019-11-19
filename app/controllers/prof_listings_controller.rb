@@ -1,10 +1,12 @@
 class ProfListingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
-    @proflistings = ProfListing.all
+    @proflistings = policy_scope(ProfListing).order(created_at: :desc)
   end
 
   def new
     @proflisting = ProfListing.new
+    authorize @proflisting
   end
 
   def create
@@ -15,6 +17,7 @@ class ProfListingsController < ApplicationController
     else
       render :new
     end
+    authorize @proflisting
   end
 
   private
