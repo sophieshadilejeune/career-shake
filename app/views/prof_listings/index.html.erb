@@ -1,0 +1,13 @@
+<h1>All Professional Listings</h1>
+
+<% @proflistings.each do |listing| %>
+  <% if listing.active %>
+    <h2><%= listing.id %></h2>
+    <ul>
+      <li>Name: <%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %></li>
+      <li>Company: <%= listing.company %></li>
+      <li>Industry: <%= listing.industry %></li>
+      <li>Role: <%= listing.role %></li>
+    </ul>
+  <% end %>
+<% end %>
