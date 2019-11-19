@@ -1,5 +1,32 @@
-<h1>All Professional Listings</h1>
+<h1 align="center">Meet new professionals!</h1>
+<div class="container">
+<div class="card-listing">
+  <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+  <div class="card-listing-infos">
+    <div>
+      <h2>Name of the person HERE</h2>
+      <p>Role and Company of the person HERE
+      </p>
+    </div>
+  </div>
+</div>
 
+<% @proflistings.each do |listing| %>
+  <% if listing.active %>
+<div class="card-listing">
+  <%= cl_image_tag @article.photo %>
+  <div class="card-listing-infos">
+    <div>
+      <h2><%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %>
+      <p><%= listing.role %> for: <%= listing.company %> (Industry: <%= listing.industry %>)
+      </p>
+    </div>
+  </div>
+</div>
+  <% end %>
+  <% end %>
+
+<p>
 <% @proflistings.each do |listing| %>
   <% if listing.active %>
     <h2><%= listing.id %></h2>
@@ -11,3 +38,5 @@
     </ul>
   <% end %>
 <% end %>
+</div>
+</p>
