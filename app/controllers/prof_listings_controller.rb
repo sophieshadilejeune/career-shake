@@ -1,7 +1,13 @@
 class ProfListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+
   def index
     @proflistings = policy_scope(ProfListing).order(created_at: :desc)
+  end
+
+  def show
+    @proflisting = ProfListing.find(params["id"])
+    authorize @proflisting
   end
 
   def new
