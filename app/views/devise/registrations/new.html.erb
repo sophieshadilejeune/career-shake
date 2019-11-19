@@ -10,6 +10,7 @@
     <%= f.input :last_name,
                 required: true %>
     <%= f.input :bio %>
+    <%= f.input :professional, as: :radio_buttons %>
     <%= f.input :email,
                 required: true,
                 input_html: { autocomplete: "email" }%>
