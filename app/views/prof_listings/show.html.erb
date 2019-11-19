@@ -1,0 +1,18 @@
+<% if @proflisting.active %>
+
+  <h1 align="center"><%= User.find(@proflisting.user.id).first_name %> <%= User.find(@proflisting.user.id).last_name %></h1>
+  <div class="container">
+    <div>
+      <%= cl_image_tag User.find(@proflisting.user.id).photo, gravity: :face %>
+      <p>Role: <%= @proflisting.role %></p>
+      <p>Company: <%= @proflisting.company %></p>
+      <p>Industry: <%= @proflisting.industry %>)</p>
+      <p>Bio: <% User.find(@proflisting.user.id).bio %></p>
+    </div>
+  </div>
+
+<% else %>
+
+  <p>Listing not active</p>
+
+<% end %>

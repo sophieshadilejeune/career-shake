@@ -17,6 +17,10 @@ class ProfListingPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def edit?
     user.professional
   end
