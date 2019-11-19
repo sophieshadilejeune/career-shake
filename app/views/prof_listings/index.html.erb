@@ -25,19 +25,3 @@
 </div>
   <% end %>
   <% end %>
-
-<p>
-<% @proflistings.each do |listing| %>
-  <% if listing.active %>
-    <h2><%= listing.id %></h2>
-    <ul>
-      <li>Name: <%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %></li>
-      <li><%= cl_image_tag User.find(listing.user.id).photo, height: 300, width: 300, crop: :fill, gravity: :face %></li>
-      <li>Company: <%= listing.company %></li>
-      <li>Industry: <%= listing.industry %></li>
-      <li>Role: <%= listing.role %></li>
-    </ul>
-  <% end %>
-<% end %>
-</div>
-</p>
