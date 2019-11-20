@@ -74,3 +74,23 @@
   height: 30%;
   width: 100%;
 }
+
+.container-profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 16px;
+}
+
+.profile-card img {
+  width: 100%;
+  height: auto;
+  // margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px;
+}
+
+.profile-card-content-info {
+  margin-left: 16px;
+
+
+}

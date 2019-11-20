@@ -34,13 +34,15 @@
           <%= link_to "View profile", prof_listing_path(listing), class: 'btn btn-card btn-profile' %>
             <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
               <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
-              </div>
-              </div>
             <% end %>
-          </div>
+              </div>
+              </div>
+          <% end %>
         </div>
       </div>
     <% end %>
   <% end %>
+  </div>
 <% end %>
+</div>
 </div>
