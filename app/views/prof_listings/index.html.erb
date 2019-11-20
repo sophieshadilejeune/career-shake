@@ -19,36 +19,32 @@
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <% @proflistings.each do |listing| %>
-        <% if listing.active %>
-        <div class="card-listing">
-          <%= cl_image_tag User.find(listing.user.id).photo, gravity: :face %>
-          <div class="card-listing-infos">
-            <div>
-              <h2><%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %></h2>
-              <p><%= listing.role %> at: <%= listing.company %> (Industry: <%= listing.industry %>)</p>
-              <% if user_signed_in? %>
-              <div class="button-grid">
-                <div class="display-button">
-                  <%= link_to "View profile", prof_listing_path(listing), class: 'btn btn-card btn-profile' %>
-                  <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
-                  <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
-                  <% end %>
-                </div>
+      <% @proflistings.each do |listing| %>
+      <% if listing.active %>
+      <div class="card-listing">
+        <%= cl_image_tag User.find(listing.user.id).photo, gravity: :face %>
+        <div class="card-listing-infos">
+          <div>
+            <h2><%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %></h2>
+            <p><%= listing.role %> at: <%= listing.company %> (Industry: <%= listing.industry %>)</p>
+            <% if user_signed_in? %>
+            <div class="button-grid">
+              <div class="display-button">
+                <%= link_to "View profile", prof_listing_path(listing), class: 'btn btn-card btn-profile' %>
+                <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
+                <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
+                <% end %>
               </div>
-              <% end %>
             </div>
+            <% end %>
           </div>
         </div>
-        <% end %>
-        <% end %>
       </div>
-    <% end %>
-  <% end %>
+      <% end %>
+      <% end %>
   </div>
-<% end %>
 </div>
 </div>
 
