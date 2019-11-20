@@ -2,7 +2,11 @@ class ProfListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @proflistings = policy_scope(ProfListing).order(created_at: :desc)
+    if params[:industry].present?
+      @proflistings = policy_scope(ProfListing).order(created_at: :desc).where(industry: params[:industry])
+    else
+      @proflistings = policy_scope(ProfListing).order(created_at: :desc)
+    end
   end
 
   def show
