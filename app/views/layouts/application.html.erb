@@ -10,19 +10,13 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-<!--     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo.png" %>
-      <% end %> -->
-
-
       <% if user_signed_in? %>
 
       <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to prof_listings_path, class: "navbar-brand" do %>
         <%= image_tag "logo.png" %>
       <% end %>
-        <div class="navbar-nav">Hi <%= current_user.first_name  %></div>
+        <div class="navbar-nav" id="welcome-message">Hi <%= current_user.first_name  %></div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

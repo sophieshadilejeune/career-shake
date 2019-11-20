@@ -1,21 +1,28 @@
 <% if @proflisting.active %>
 
+<div class="container-profile">
+
+  <div class="profile-picture">
+    <%= cl_image_tag User.find(@proflisting.user.id).photo, gravity: :face %>
+
+  </div>
+
+  <div class="profile-content-info">
   <h1 align="center"><%= User.find(@proflisting.user.id).first_name %> <%= User.find(@proflisting.user.id).last_name %></h1>
-  <div class="container">
-    <div>
-      <%= cl_image_tag User.find(@proflisting.user.id).photo, gravity: :face %>
+  <div>
       <p>Role: <%= @proflisting.role %></p>
       <p>Company: <%= @proflisting.company %></p>
       <p>Industry: <%= @proflisting.industry %>)</p>
       <p>Bio: <% User.find(@proflisting.user.id).bio %></p>
-      <% if !current_user.professional && current_user.connections.where(prof_listing: @proflisting).any? %>
-        <%= link_to "Delete connection", prof_listing_connection_path(@proflisting), method: :delete, class: "btn" %>
-      <% end %>
-    </div>
+  </div>
   </div>
 
-<% else %>
+  <% if !current_user.professional && current_user.connections.where(prof_listing: @proflisting).any? %>
+    <%= link_to "Delete connection", prof_listing_connection_path(@proflisting), method: :delete, class: "btn" %>
+  <% end %>
 
+</div>
+  <% else %>
   <p>Listing not active</p>
-
+</div>
 <% end %>
