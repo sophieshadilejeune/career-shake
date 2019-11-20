@@ -6,11 +6,10 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :company, collection: ["Animal Farm", "Pride and Prejudice", "Manchester by the Sea", "Life of Pi","To Kill a Mockingbird"]%>
-    <%= f.input :role, collection: ["Analyst", "Consultant", "Junior Developer", "Partner", "Associate", "Product Manager"]%>
-    <%= f.input :industry, collection: ["Information Technology and Services", "Marketing and Advertising", "Human Resources", "Computer Software", "Financial Services", "Staffing and Recruitment", "Internet", "Management Consulting", "Telecommunications", "Retail"]%>
+    <%= f.input :company, collection: ProfListing::COMPANIES %>
+    <%= f.input :role, collection: ProfListing::ROLES %>
+    <%= f.input :industry, collection: ProfListing::INDUSTRIES %>
     <%= f.input :active, as: :radio_buttons %>
-
   </div>
 
   <div class="form-action">
