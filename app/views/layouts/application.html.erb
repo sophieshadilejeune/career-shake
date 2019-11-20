@@ -14,9 +14,10 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo.png" %>
       <% end %>
-      <div class="navbar-nav">Hi</div>
+
 
       <% if user_signed_in? %>
+        <div class="navbar-nav">Hi <%= current_user.first_name  %></div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
