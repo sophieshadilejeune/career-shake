@@ -10,7 +10,7 @@ class ProfListingsController < ApplicationController
   end
 
   def show
-    @proflisting = ProfListing.find(params["id"])
+    @proflisting = ProfListing.find(params[:id])
     authorize @proflisting
   end
 
@@ -26,6 +26,22 @@ class ProfListingsController < ApplicationController
       redirect_to prof_listings_path
     else
       render :new
+    end
+    authorize @proflisting
+  end
+
+  def edit
+    @proflisting = ProfListing.find(params[:id])
+    authorize @proflisting
+  end
+
+  def update
+    @proflisting = ProfListing.find(params[:id])
+    @proflisting.user = current_user
+    if @proflisting.update(proflisting_params)
+      redirect_to prof_listings_path
+    else
+      render :edit
     end
     authorize @proflisting
   end
