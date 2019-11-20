@@ -1,4 +1,4 @@
-<h1>Create your Professional Listing</h1>
+<h1>Edit your Professional Listing</h1>
 
 <div class="content">
 <%= simple_form_for(@proflisting) do |f| %>
@@ -10,6 +10,7 @@
     <%= f.input :role, collection: ["Analyst", "Consultant", "Junior Developer", "Partner", "Associate", "Product Manager"]%>
     <%= f.input :industry, collection: ["Information Technology and Services", "Marketing and Advertising", "Human Resources", "Computer Software", "Financial Services", "Staffing and Recruitment", "Internet", "Management Consulting", "Telecommunications", "Retail"]%>
     <%= f.input :active, as: :radio_buttons %>
+
 
   </div>
 
