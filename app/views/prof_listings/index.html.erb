@@ -1,5 +1,6 @@
 <h1 align="center">Meet new professionals!</h1>
 <div class="container">
+<div class="cards-grid">
 <div class="card-listing">
   <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
   <div class="card-listing-infos">
@@ -20,10 +21,13 @@
           <h2><%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %></h2>
           <p><%= listing.role %> at: <%= listing.company %> (Industry: <%= listing.industry %>)</p>
           <% if user_signed_in? %>
+          <div class="button-grid">
+          <div class="display-button">
+          <%= link_to "View profile", prof_listing_path(listing), class: 'btn btn-card btn-profile' %>
             <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
-            <div class="btn btn-connection">
-              <%= link_to "Add connection", prof_listing_connections_path(listing), method: :post%>
-            </div>
+              <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
+              </div>
+              </div>
             <% end %>
           <% end %>
         </div>
@@ -31,3 +35,4 @@
     </div>
   <% end %>
 <% end %>
+</div>
