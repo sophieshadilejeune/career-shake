@@ -1,14 +1,14 @@
 p "Clearing all messages..."
-Message.destroy_all if Rails.env.development?
+Message.destroy_all
 
 p "Clearing all connections..."
-Connection.destroy_all if Rails.env.development?
+Connection.destroy_all
 
 p "Clearing all listings..."
-ProfListing.destroy_all if Rails.env.development?
+ProfListing.destroy_all
 
 p "Clearing all users..."
-User.destroy_all if Rails.env.development?
+User.destroy_all
 
 p "Creating new users(students)..."
 
