@@ -19,6 +19,11 @@
         <div>
           <h2><%= User.find(listing.user.id).first_name %> <%= User.find(listing.user.id).last_name %></h2>
           <p><%= listing.role %> at: <%= listing.company %> (Industry: <%= listing.industry %>)</p>
+          <% if user_signed_in? %>
+            <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
+              <%= link_to "Add connection", prof_listing_connections_path(listing), method: :post, class: "btn" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

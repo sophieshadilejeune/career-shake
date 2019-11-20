@@ -8,6 +8,9 @@
       <p>Company: <%= @proflisting.company %></p>
       <p>Industry: <%= @proflisting.industry %>)</p>
       <p>Bio: <% User.find(@proflisting.user.id).bio %></p>
+      <% if !current_user.professional && current_user.connections.where(prof_listing: @proflisting).any? %>
+        <%= link_to "Delete connection", prof_listing_connection_path(@proflisting), method: :delete, class: "btn" %>
+      <% end %>
     </div>
   </div>
 
