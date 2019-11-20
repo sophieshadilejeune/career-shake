@@ -1,5 +1,14 @@
 <h1 align="center">Meet new professionals!</h1>
+<div class="outer-container">
+  <div class="filter-container">
+    <%= form_tag prof_listings_path, method: :get do %>
+      <%= select_tag "industry", options_for_select(ProfListing::INDUSTRIES), multiple: true %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "Clear filter", prof_listings_path, class: "btn btn-primary" %>
+  </div>
 <div class="container">
+
 <div class="cards-grid">
 <div class="card-listing">
   <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
@@ -10,7 +19,6 @@
       </p>
     </div>
   </div>
-</div>
 
 <% @proflistings.each do |listing| %>
   <% if listing.active %>
@@ -29,10 +37,10 @@
               </div>
               </div>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
 </div>
