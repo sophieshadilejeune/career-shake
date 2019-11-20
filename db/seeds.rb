@@ -84,25 +84,25 @@ p "Creating new listings..."
 
 sophie_listing = ProfListing.create!(
   user: sophie_prof,
-  company: "Career Shakes",
-  industry: "Internet",
-  role: "Front End Wizard",
+  company: "Animal Farm",
+  industry: "Marketing and Advertising",
+  role: "Analyst",
   active: true,
 )
 
 maddy_listing = ProfListing.create!(
   user: maddy_prof,
-  company: "Awesome Company",
-  industry: "Unicorns",
-  role: "Boss",
+  company: "Life of Pi",
+  industry: "Human Resources",
+  role: "Consultant",
   active: true,
 )
 
 ameya_listing = ProfListing.create!(
   user: ameya_prof,
-  company: "Unicorns",
-  industry: "Internet",
-  role: "Human",
+  company: "Manchester by the Sea",
+  industry: "Human Resources",
+  role: "Partner",
   active: true,
 )
 
