@@ -21,7 +21,9 @@
           <p><%= listing.role %> at: <%= listing.company %> (Industry: <%= listing.industry %>)</p>
           <% if user_signed_in? %>
             <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
-              <%= link_to "Add connection", prof_listing_connections_path(listing), method: :post, class: "btn" %>
+            <div class="btn btn-connection">
+              <%= link_to "Add connection", prof_listing_connections_path(listing), method: :post%>
+            </div>
             <% end %>
           <% end %>
         </div>
