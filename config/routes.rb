@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'pages#home'
-  resources :prof_listings, only: [:index, :show, :new, :create] do
+  resources :prof_listings, only: [:index, :show, :new, :create, :edit, :update] do
     resources :connections, only: [:create, :destroy]
 
   end
