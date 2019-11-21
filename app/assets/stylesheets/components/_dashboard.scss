@@ -1,0 +1,27 @@
+.container-dashboard {
+  margin: 16px;
+}
+.dashboard-picture img {
+  width: 100%;
+}
+.dashboard-content-info {
+  margin-top: 16px;
+}
+
+.dashboard-content-info h4 {
+  font-size: 18px;
+  font-family: "open sans";
+  font-weight: bold;
+
+}
+.cards-grid-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.card-dashboard {
+  height: 250px;
+  width: 250px;
+}
+
