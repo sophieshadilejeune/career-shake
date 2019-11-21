@@ -8,11 +8,11 @@
         <%= link_to "Edit User Info", edit_user_registration_path %> <br>
         <%= link_to "Delete Account", user_registration_path, method: :delete %>
         <% if current_user.professional %>
-          <% if @professional.nil? %>
+          <% if @proflisting.nil? %>
             <p>Create Your Professional Profile:</p>
             <%= link_to "Create", new_prof_listing_path %>
           <% else %>
-            <h4>Professional profile</h4>
+            <h4>Your Professional Profile</h4>
             <p>Role: <%= @proflisting.role %></p>
             <p>Company: <%= @proflisting.company %></p>
             <p>Industry: <%= @proflisting.industry %></p>
@@ -30,7 +30,9 @@
                 <div class="card-listing-infos">
                   <div>
                     <h2><%= connection.user.first_name %> <%= connection.user.last_name %></h2>
-                    <p>should countain some info</p>
+                    <p><strong>Bio: </strong><%= connection.user.bio %></p>
+                    <%= link_to "Message", prof_listing_connection_messages_path(connection.prof_listing, connection) %><br>
+                    <%= link_to "Delete Connection", prof_listing_connection_path(connection.prof_listing, connection), method: :delete %>
                   </div>
                 </div>
               </div>
