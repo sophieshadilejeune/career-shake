@@ -8,7 +8,14 @@
     <% if !current_user.professional && current_user.connections.where(prof_listing: @proflisting).any? %>
     <%= link_to "Send a message", "#" , class: "btn" %>
     <%= link_to "Delete connection", prof_listing_connection_path(@proflisting), method: :delete, class: "btn" %>
+
+    <% else  %>
+    <%= link_to "Add connection", prof_listing_connections_path(@proflisting), class: "btn", method: :post%>
   <% end %>
+    <div>
+    <br>
+     <a href="/prof_listings/">Go back to your listing</a>
+  </div>
 </div>
   </div>
 

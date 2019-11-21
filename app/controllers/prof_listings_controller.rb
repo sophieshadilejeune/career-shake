@@ -22,7 +22,7 @@ class ProfListingsController < ApplicationController
   def create
     @proflisting = ProfListing.new(proflisting_params)
     @proflisting.user = current_user
-    if @proflisting.save
+    if @proflisting.save!
       redirect_to prof_listings_path
     else
       render :new
