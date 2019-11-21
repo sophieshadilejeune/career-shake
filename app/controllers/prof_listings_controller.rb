@@ -2,8 +2,23 @@ class ProfListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    if params[:industry].present?
-      @proflistings = policy_scope(ProfListing).order(created_at: :desc).where(industry: params[:industry])
+    if params[:industry].present? || params[:role].present? || params[:company].present?
+
+      industries = policy_scope(ProfListing).order(created_at: :desc).where(industry: params[:industry])
+      roles = policy_scope(ProfListing).order(created_at: :desc).where(role: params[:role])
+      companies = policy_scope(ProfListing).order(created_at: :desc).where(company: params[:company])
+
+      count = 1
+      count += 1 if industries.count == 0
+      count += 1 if roles.count == 0
+      count += 1 if companies.count == 0
+
+      filter = [industries, roles, companies].flatten
+
+      @proflistings = filter.select { |proflisting| filter.count(proflisting) > (3 - count) }
+
+      @proflistings.uniq!
+
     else
       @proflistings = policy_scope(ProfListing).order(created_at: :desc)
     end
