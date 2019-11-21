@@ -1,6 +1,5 @@
 class ConnectionsController < ApplicationController
 
-
   def create
     @connection = Connection.new
     @connection.user = current_user
