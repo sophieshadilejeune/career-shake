@@ -61,6 +61,11 @@ class ProfListingsController < ApplicationController
     authorize @proflisting
   end
 
+def test
+  @proflisting = ProfListing.new
+  authorize @proflisting
+end
+
   private
 
   def proflisting_params

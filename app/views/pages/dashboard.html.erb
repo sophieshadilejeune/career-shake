@@ -1,0 +1,54 @@
+<div class="container-dashboard">
+<div class="row">
+  <div class="col-md-4 offset-md-1 dashboard-picture">
+    <%= cl_image_tag current_user.photo, gravity: :face  %>
+
+    <div class="dashboard-content-info">
+    <p>Name: <%= @current_user.first_name %> <%= @current_user.last_name %></p>
+    <p>Bio: <%= @current_user.bio %></p>
+
+    <h4>Professional profile</h4>
+    <p>Role: <%= @proflisting.role %></p>
+    <p>Company: <%= @proflisting.company %></p>
+    <p>Industry: <%= @proflisting.industry %></p>
+    </div>
+  </div>
+
+  <div class="col-md-6 offset-md-0 form-content">
+    <h4 align="center">You are connected to the following persons: </h3>
+
+<div class="cards-grid-dashboard">
+      <div class="card-listing card-dashboard">
+        <%= cl_image_tag current_user.photo, gravity: :face %>
+        <div class="card-listing-infos">
+          <div>
+            <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+            <p>should countain some info</p>
+          </div>
+        </div>
+      </div>
+            <div class="card-listing card-dashboard">
+        <%= cl_image_tag current_user.photo, gravity: :face %>
+        <div class="card-listing-infos">
+          <div>
+            <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+            <p>should countain some info</p>
+            </div>
+        </div>
+      </div>
+       <div class="card-listing card-dashboard">
+        <%= cl_image_tag current_user.photo, gravity: :face %>
+        <div class="card-listing-infos">
+          <div>
+            <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+            <p>should countain some info</p>
+            </div>
+        </div>
+      </div>
+
+
+
+  </div>
+</div>
+</div>
+</div>
