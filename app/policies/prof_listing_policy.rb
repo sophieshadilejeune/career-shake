@@ -28,9 +28,4 @@ class ProfListingPolicy < ApplicationPolicy
   def update?
     user.professional
   end
-
-  def test?
-    true
-  end
-
 end
