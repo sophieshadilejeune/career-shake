@@ -2,11 +2,12 @@
 <div class="outer-container">
   <div class="filter-container">
     <%= form_tag prof_listings_path, method: :get do %>
-    <%= select_tag "industry", options_for_select(ProfListing::INDUSTRIES), multiple: true %>
+    <%= select_tag "industry", options_for_select(ProfListing::INDUSTRIES), multiple: true, class: 'select2' %>
+    <%= select_tag "role", options_for_select(ProfListing::ROLES), multiple: true, class: 'select2' %>
+    <%= select_tag "company", options_for_select(ProfListing::COMPANIES), multiple: true, class: 'select2' %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
-    <%= link_to "Clear filter", prof_listings_path, class: "btn btn-primary" %>
-  </div>
+
   <div class="container">
 
     <div class="cards-grid">
@@ -37,4 +38,3 @@
   </div>
 </div>
 </div>
-
