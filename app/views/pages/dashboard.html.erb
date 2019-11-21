@@ -43,6 +43,7 @@
                     <p><strong>Industry: </strong><%= connection.prof_listing.industry %></p>
                     <p><strong>Company: </strong><%= connection.prof_listing.company %></p>
                     <p><strong>Role: </strong><%= connection.prof_listing.role %></p>
+                    <%= link_to "Message", prof_listing_connection_messages_path(connection.prof_listing, connection) %><br>
                     <%= link_to "View Listing", prof_listing_path(connection.prof_listing) %><br>
                     <%= link_to "Delete Connection", prof_listing_connection_path(connection.prof_listing, connection), method: :delete %>
                   </div>

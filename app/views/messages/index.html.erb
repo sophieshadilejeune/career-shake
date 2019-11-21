@@ -1,0 +1,8 @@
+<% @messages.each do |message| %>
+  <p><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+<% end %>
+
+<%= form_tag prof_listing_connection_messages_path(@messages[0].connection.prof_listing, @messages[0].connection), method: :post do %>
+<%= text_field_tag "content"%>
+<%= submit_tag "submit", class: "btn btn-primary" %>
+<% end %>
