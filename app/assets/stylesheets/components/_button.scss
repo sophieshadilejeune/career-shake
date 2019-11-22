@@ -5,7 +5,7 @@
   background-color: white;
   color: $mauve;
   font-weight: bold;
-  padding: 12px 16px 12px 16px;
+  padding: 4px 8px 4px 8px;
   border-radius: 8px;
 }
 
@@ -29,8 +29,27 @@
   grid-template-columns: 1fr;
   justify-items: center;
 
-  margin: 5px 0 -7px 96px;
+  margin: 12px;
 }
 
+.btn-more-space {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $mauve;
+  background-color: white;
+  color: $mauve;
+  font-weight: bold;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px;
+}
 
-
+.btn-more-space:hover {
+  background-color: $white;
+  // color: $gray;
+  // border-style: solid;
+  // border-width: 2px;
+  // border-color: $gray;
+  border-color: $purple;
+  color: $purple;
+  text-decoration: none;
+}
