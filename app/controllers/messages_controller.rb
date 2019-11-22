@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = policy_scope(Message).order(created_at: :asc).where(connection: Connection.find(params[:connection_id]))
+    @connection = Connection.find(params[:connection_id])
+    @messages = policy_scope(Message).order(created_at: :asc).where(connection: @connection)
   end
 end

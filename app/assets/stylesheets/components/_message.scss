@@ -1,0 +1,61 @@
+.container-message {
+  width: 800px;
+  height: 85vh;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.message-box {
+  width: 760px;
+  margin: 20px auto;
+  height: 67vh;
+  overflow: auto;
+}
+
+.message {
+  height: 140px;
+  margin: 10px 0;
+}
+
+.time {
+  height: 10px;
+  text-align: center;
+}
+
+.time p {
+  margin: 0;
+}
+
+.name {
+  height: 60px;
+  width: 760px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.message-img {
+  height: 50px;
+  width: 50px;
+  margin: 0 20px;
+  border-radius: 50%;
+}
+
+.message-content {
+  height: 70px;
+  width: 760px;
+  margin: 0 0 10px 0;
+}
+
+.content-input {
+  width: 760px;
+  height: 8vh;
+}
+
+.btn-message {
+  margin: 10px 0 0 687px;
+}

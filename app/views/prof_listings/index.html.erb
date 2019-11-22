@@ -37,10 +37,11 @@
           </div>
             <div class="button-grid">
               <div class="display-button">
-                <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
-                  <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
-                <% else %>
+                <% if current_user.professional %>
+                <% elsif current_user.connections.where(prof_listing: listing).any? %>
                   <p>Connected</p>
+                <% else %>
+                  <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
                 <% end %>
               </div>
             </div>
