@@ -7,8 +7,8 @@
         <p><strong>Name</strong>: <%= current_user.first_name %> <%= current_user.last_name %></p>
         <p><strong>Bio</strong>: <%= current_user.bio %></p>
         <br>
-        <%= link_to "Edit User Info", edit_user_registration_path %> <br>
-        <%= link_to "Delete Account", user_registration_path, method: :delete %>
+        <%= link_to "Edit User Info", edit_user_registration_path, {:class => "a"}%> <br>
+        <%= link_to "Delete Account", user_registration_path, method: :delete, class: "a"%>
         <br><br>
         <% if current_user.professional %>
           <% if @proflisting.nil? %>
@@ -20,7 +20,7 @@
             <p><strong>Company</strong>: <%= @proflisting.company %></p>
             <p><strong>Industry</strong>: <%= @proflisting.industry %></p>
             <br>
-            <%= link_to "Edit Professional Info", edit_prof_listing_path(@proflisting) %><br>
+            <%= link_to "Edit Professional Info", edit_prof_listing_path(@proflisting), class: "a" %><br>
           <% end %>
         <% end %>
       </div>

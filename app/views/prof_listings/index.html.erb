@@ -40,7 +40,7 @@
                 <% unless current_user.professional || current_user.connections.where(prof_listing: listing).any? %>
                   <%= link_to "Add connection", prof_listing_connections_path(listing), class: 'btn btn-card btn-connection', method: :post%>
                 <% else %>
-                  <p>Connected</p>
+                  <p class="p-connected">Connected</p>
                 <% end %>
               </div>
             </div>
