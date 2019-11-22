@@ -1,27 +1,37 @@
-<% @messages.each do |message| %>
-  <% if Time.now - message.created_at < 60 %>
-    <small><p>0 min ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% elsif Time.now - message.created_at < 120 %>
-    <small><p>1 min ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% elsif Time.now - message.created_at < 3600 %>
-    <small><p><%= ((Time.now - message.created_at) / 60).round %> mins ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% elsif Time.now - message.created_at < 7200 %>
-    <small><p>1 hour ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% elsif Time.now - message.created_at < 86400 %>
-    <small><p><%= ((Time.now - message.created_at) / 60 / 60).round %> hours ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% elsif Time.now - message.created_at < 172800 %>
-    <small><p>1 day ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% else %>
-    <small><p><%= ((Time.now - message.created_at) / 60 / 60 / 24).round %> days ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
-  <% end %>
+<div class="container-message">
+  <div class="message-box">
+    <% @messages.each do |message| %>
+      <div class="message">
+        <div class="time">
+          <% if Time.now - message.created_at < 60 %>
+            <small><p>0 min ago</small></p>
+          <% elsif Time.now - message.created_at < 120 %>
+            <small><p>1 min ago</small></p>
+          <% elsif Time.now - message.created_at < 3600 %>
+            <small><p><%= ((Time.now - message.created_at) / 60).round %> mins ago</p></small>
+          <% elsif Time.now - message.created_at < 7200 %>
+            <small><p>1 hour ago</p></small>
+          <% elsif Time.now - message.created_at < 86400 %>
+            <small><p><%= ((Time.now - message.created_at) / 60 / 60).round %> hours ago</p></small>
+          <% elsif Time.now - message.created_at < 172800 %>
+            <small><p>1 day ago</p></small>
+          <% else %>
+            <small><p><%= ((Time.now - message.created_at) / 60 / 60 / 24).round %> days ago</p></small>
+          <% end %>
+        </div>
+        <div class="name">
+          <div class="message-img" style="background-image: url('<%= cl_image_path message.user.photo, width: 150, height: 150, crop: :thumb, gravity: :face %>')">
+          </div>
+          <p><small><strong><%= message.user.first_name %></strong></small></p>
+        </div>
+        <div class="message-content">
+          <p><%= message.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%= form_tag prof_listing_connection_messages_path(@connection.prof_listing, @connection), method: :post do %>
+<%= text_field_tag "content", params[:content], class: "content-input" %>
+<%= submit_tag "submit", class: "btn btn-primary btn-message" %>
 <% end %>
-
-<%= form_tag prof_listing_connection_messages_path(ProfListing.find(params[:prof_listing_id]), Connection.find(params[:connection_id])), method: :post do %>
-<%= text_field_tag "content"%>
-<%= submit_tag "submit", class: "btn btn-primary" %>
-<% end %>
-
-
-
-
-<!-- pluralize.... -->
+</div>
