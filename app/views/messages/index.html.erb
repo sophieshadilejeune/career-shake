@@ -1,0 +1,22 @@
+<% @messages.each do |message| %>
+  <% if Time.now - message.created_at < 60 %>
+    <small><p>0 min ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% elsif Time.now - message.created_at < 120 %>
+    <small><p>1 min ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% elsif Time.now - message.created_at < 3600 %>
+    <small><p><%= ((Time.now - message.created_at) / 60).round %> mins ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% elsif Time.now - message.created_at < 7200 %>
+    <small><p>1 hour ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% elsif Time.now - message.created_at < 86400 %>
+    <small><p><%= ((Time.now - message.created_at) / 60 / 60).round %> hours ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% elsif Time.now - message.created_at < 172800 %>
+    <small><p>1 day ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% else %>
+    <small><p><%= ((Time.now - message.created_at) / 60 / 60 / 24).round %> days ago | </small><strong><%= message.user.first_name %>: </strong><%= message.content %></p><br>
+  <% end %>
+<% end %>
+
+<%= form_tag prof_listing_connection_messages_path(@messages[0].connection.prof_listing, @messages[0].connection), method: :post do %>
+<%= text_field_tag "content"%>
+<%= submit_tag "submit", class: "btn btn-primary" %>
+<% end %>

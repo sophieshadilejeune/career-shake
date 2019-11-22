@@ -3,11 +3,15 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-get "prof_listings/test" => "prof_listings#test"
   root to: 'pages#home'
-  resources :prof_listings, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :connections, only: [:create, :destroy]
 
+  get 'dashboard', to: 'pages#dashboard'
+
+
+  resources :prof_listings, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :connections, only: [:create, :destroy] do
+      resources :messages, only: [:create, :index]
+    end
   end
 
   # resources :connections, only: [:new, :create]
