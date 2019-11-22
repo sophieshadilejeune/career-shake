@@ -1,27 +1,134 @@
-.container-dashboard {
+// container that contains the full webpage
+.dashboard-container {
   margin: 16px;
 }
-.dashboard-picture img {
+
+
+// left side of the dashboard
+
+.dashboard-profile img {
   width: 100%;
+  height: 280px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
 .dashboard-content-info {
   margin-top: 16px;
+   background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
 }
 
 .dashboard-content-info h4 {
   font-size: 18px;
   font-family: "open sans";
   font-weight: bold;
+  color: $purple;
 
 }
-.cards-grid-dashboard {
+
+.dashboard-content-info p {
+  margin: 3px;
+}
+
+// ----------
+
+// right side of the dashboard
+
+// container of all the connections
+.dashboard-connection-container {
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+  // margin: 16px;
+  padding: 16px;
+}
+
+// display of the cards insinde the container
+.dashboard-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
 }
 
-.card-dashboard {
-  height: 400px;
-  width: 250px;
+//each card containing the connection picture and info
+.dashboard-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 280px;
+  width: 280px;
+  margin: 16px;
+  transition: all .2s ease-in-out;
+  border-radius: 4px;
+  position: relative;
 }
+
+.dashboard-card:hover {
+  transform: scale(1.04);
+}
+
+.dashboard-card img {
+  height: 60%;
+  width: 100%;
+  object-fit: cover;
+}
+
+// text of each connection
+.dashboard-card-listing-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  height: 40%;
+  width: 100%;
+}
+
+.dashboard-card-listing-infos h2 {
+font-size: 18px;
+color: black;
+}
+
+.dashboard-card-listing-infos p {
+font-size: 14px;
+padding: 0px;
+margin: 0px;
+color: black;
+}
+
+// card linked to a profile page
+.dashboard-card a {
+  text-decoration: none;
+}
+
+// CSS of the icons
+.far {
+  color: $purple;
+  font-size: 25px;
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+}
+
+.far:hover {
+    // transform: scale(1.1);
+    color: grey
+}
+
+// Delete icon
+.fa-times-circle {
+  right: 10px;
+  top: 5px;
+}
+
+// Message icon
+.fa-envelope {
+    right: 10px;
+  bottom: 5px;
+
+}
+
+
 
