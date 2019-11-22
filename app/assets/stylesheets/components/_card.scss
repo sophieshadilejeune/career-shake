@@ -140,7 +140,7 @@
 
 .container-profile {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  // grid-template-columns: 1fr 2fr;
   margin: 16px;
 }
 
@@ -153,5 +153,11 @@
 }
 
 .profile-card-content-info {
-  margin-left: 16px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  margin-top: 16px;
+}
+.profile-card-content-info p {
+margin: 3px;
 }

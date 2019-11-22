@@ -1,38 +1,55 @@
 <% if @proflisting.active %>
 
-<div class="container-profile">
+<div class="listing-show-container">
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <div class="container-profile">
 
-  <div class="profile-card">
-    <%= cl_image_tag User.find(@proflisting.user.id).photo, gravity: :face %>
-<div class="profile-button">
-    <% if !current_user.professional && current_user.connections.where(prof_listing: @proflisting).any? %>
-    <%= link_to "Send a message", "#" , class: "btn" %>
-    <%= link_to "Delete connection", prof_listing_connection_path(@proflisting), method: :delete, class: "btn" %>
+        <div class="profile-card">
+          <%= cl_image_tag User.find(@proflisting.user.id).photo, gravity: :face %>
 
-    <% else  %>
-    <%= link_to "Add connection", prof_listing_connections_path(@proflisting), class: "btn", method: :post%>
-  <% end %>
-    <div>
-    <br>
-     <a href="/prof_listings/">Go back to your listing</a>
-  </div>
-</div>
-  </div>
+          <div class="profile-button">
+            <% if !current_user.professional && current_user.connections.where(prof_listing: @proflisting).any? %>
+            <%= link_to "Send a message", prof_listing_connection_messages_path(ProfListing.find(params[:id]), Connection.where(prof_listing: ProfListing.find(params[:id])).where(user: current_user)[0]), class: "btn" %>
+            <%= link_to "Delete connection", prof_listing_connection_path(@proflisting), method: :delete, class: "btn" %>
 
+            <% else  %>
+            <%= link_to "Add connection", prof_listing_connections_path(@proflisting), class: "btn", method: :post%>
+            <% end %>
+
+            <div>
+              <br>
+              <a href="/prof_listings/">Go back to your listing</a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+<div class="col-md-6 offset-md-0">
   <div class="profile-card-content-info">
-  <h1><%= User.find(@proflisting.user.id).first_name %> <%= User.find(@proflisting.user.id).last_name %></h1>
-  <div>
-      <p>Role: <%= @proflisting.role %></p>
-      <p>Company: <%= @proflisting.company %></p>
-      <p>Industry: <%= @proflisting.industry %></p>
-      <p>Bio: <%= User.find(@proflisting.user.id).bio %></p>
-  </div>
-  </div>
+    <h2><%= User.find(@proflisting.user.id).first_name %> <%= User.find(@proflisting.user.id).last_name %></h2>
 
+    <div>
+      <p><strong>Role</strong>: <%= @proflisting.role %></p>
+      <p><strong>Company</strong>: <%= @proflisting.company %></p>
+      <p><strong>Industry</strong>: <%= @proflisting.industry %></p>
+      <p><strong>Bio</strong>: <%= User.find(@proflisting.user.id).bio %></p>
+    </div>
+
+  </div>
+</div>
 
 
 </div>
+</div>
+
   <% else %>
   <p>Listing not active</p>
-</div>
+
 <% end %>
+
+
