@@ -3,9 +3,23 @@
 }
 
 .filter-container {
-  width: 20vw;
+  min-height: 160px;
+  width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
 }
 
-.container {
-  width: 80vw;
+.filter-inner-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: end;
+}
+
+.btn-search {
+  height: 36px;
+  margin-top: 32px;
 }
