@@ -16,7 +16,7 @@
   <% end %>
 <% end %>
 
-<%= form_tag prof_listing_connection_messages_path(@messages[0].connection.prof_listing, @messages[0].connection), method: :post do %>
+<%= form_tag prof_listing_connection_messages_path(ProfListing.find(params[:prof_listing_id]), Connection.find(params[:connection_id])), method: :post do %>
 <%= text_field_tag "content"%>
 <%= submit_tag "submit", class: "btn btn-primary" %>
 <% end %>
