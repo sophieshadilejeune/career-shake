@@ -1,7 +1,22 @@
 .btn {
-  background-color: $purple;
-  border-radius:    6px;
-  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $mauve;
+  background-color: white;
+  color: $mauve;
+  font-weight: bold;
+  padding: 4px 8px 4px 8px;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background-color: $white;
+  // color: $gray;
+  // border-style: solid;
+  // border-width: 2px;
+  // border-color: $gray;
+  border-color: $purple;
+  color: $purple;
 }
 
 .btn-card {
@@ -13,5 +28,28 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+
   margin: 12px;
+}
+
+.btn-more-space {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $mauve;
+  background-color: white;
+  color: $mauve;
+  font-weight: bold;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px;
+}
+
+.btn-more-space:hover {
+  background-color: $white;
+  // color: $gray;
+  // border-style: solid;
+  // border-width: 2px;
+  // border-color: $gray;
+  border-color: $purple;
+  color: $purple;
+  text-decoration: none;
 }
