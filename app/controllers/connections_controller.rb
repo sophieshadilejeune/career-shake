@@ -18,6 +18,6 @@ class ConnectionsController < ApplicationController
     @connection.destroy
     flash[:alert] = "You deleted a connection"
     authorize @connection
-    redirect_to prof_listings_path
+    redirect_to dashboard_path
   end
 end
